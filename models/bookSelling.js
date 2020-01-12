@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const sellingSchema = new Schema({
+    // owner -- will need to connect to the user table.
     title: { type: String, required: true },
     author: { type: String, required: true },
     isbn: { type: Number, required: true },
