@@ -1,0 +1,28 @@
+.container-fluid{
+    background-image: url("../../assets/images/college-students.jpg");
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+    height: 100vh;
+    padding: 100px 200px;
+}
+
+.fake-nav{
+    background-color: white;
+    height: 100px;
+}
+
+.buttons-div{
+    text-align: center;
+    margin: 0 auto;
+    padding: 5rem 0;
+    border-radius: 1rem;
+    border: black solid 2px;
+}
+
+.description{
+    background-color: rgba(225, 225, 225, .5);
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 25px;
+}
