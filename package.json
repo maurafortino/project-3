@@ -19,6 +19,10 @@
   },
   "author": "",
   "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^5.0.2",
+    "nodemon": "^2.0.2"
+  },
   "bugs": {
     "url": "https://github.com/maurafortino/project-3/issues"
   },
