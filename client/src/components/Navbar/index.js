@@ -6,6 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import InputBase from '@material-ui/core/InputBase';
 import { fade, makeStyles } from '@material-ui/core/styles';
 import SearchIcon from '@material-ui/icons/Search';
+import { NavLink} from "react-router-dom";
 
 
 const useStyles = makeStyles(theme => ({
@@ -75,17 +76,17 @@ export default function SearchAppBar() {
           >
             </IconButton>
           <Typography className={classes.title} variant="h6" noWrap>
-            Subject
+            <NavLink to="/subject">Subject</NavLink>
           </Typography>
           <Typography className={classes.title} variant="h6" noWrap>
-            How it works
+            <NavLink to="/howitworks"> How it works</NavLink>
           </Typography>
           <Typography className={classes.title} variant="h6" noWrap>
-            Book Exchange
+            <NavLink to="/">Book Exchange</NavLink>
           </Typography>
           
           <Typography className={classes.title} variant="h6" noWrap>
-            Sell Book
+            <NavLink to="/sellbook">Sell Book</NavLink>
           </Typography>
           <div className={classes.search}>
             <div className={classes.searchIcon}>
