@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import Button from '@material-ui/core/Button';
+import SearchAppBar from "../../components/Navbar"
 import "./home.css"
 
 class Home extends Component {
     render() {
         return (
             <div>
-                <div className="fake-nav"></div>
+                <SearchAppBar/>
                 <div className="container-fluid">
                     <div className="buttons-div">
                         <Button size="large" variant="contained" color="primary" href="#contained-buttons"> Login </Button>
