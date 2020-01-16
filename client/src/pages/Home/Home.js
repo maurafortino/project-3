@@ -8,8 +8,7 @@ class Home extends Component {
             <div>
                 <div className="container-fluid">
                     <div className="buttons-div">
-                        <Button size="large" variant="contained" color="primary" href="#contained-buttons"> Login </Button>
-                        <Button size="large" variant="contained" color="primary" href="#contained-buttons"> Signup </Button>
+                        
                     </div>
                     <div className="description">
                         <p>A simple and easy way for students to exchange textbooks without the expensive cost.</p>
