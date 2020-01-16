@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const sellingSchema = new Schema({
+const booksSchema = new Schema({
     // owner -- will need to connect to the user table.
     title: { type: String, required: true },
     author: { type: String, required: true },
@@ -14,6 +14,6 @@ const sellingSchema = new Schema({
     sold: {type: Boolean, default: false}
 });
 
-const Selling = mongoose.model("Selling", sellingSchema);
+const Selling = mongoose.model("Books", booksSchema);
 
-module.exports = Selling;
+module.exports = Books;
