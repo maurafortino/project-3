@@ -14,6 +14,6 @@ const booksSchema = new Schema({
     sold: {type: Boolean, default: false}
 });
 
-const Selling = mongoose.model("Books", booksSchema);
+const Books = mongoose.model("Books", booksSchema);
 
 module.exports = Books;
