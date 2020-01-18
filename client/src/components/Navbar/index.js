@@ -6,14 +6,18 @@ import Typography from '@material-ui/core/Typography';
 import InputBase from '@material-ui/core/InputBase';
 import { fade, makeStyles } from '@material-ui/core/styles';
 import SearchIcon from '@material-ui/icons/Search';
-import { NavLink} from "react-router-dom";
+import MenuIcon from '@material-ui/icons/Menu';
+import { NavLink } from "react-router-dom";
 
 
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
   },
-  
+  menuButton: {
+    marginRight: theme.spacing(2),
+  },
+
   title: {
     flexGrow: 1,
     display: 'none',
@@ -60,31 +64,30 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function SearchAppBar() {
+export default function Navbar() {
   const classes = useStyles();
 
   return (
     <div className={classes.root}>
-      <AppBar expand="lg" >
+      <AppBar expand="lg" position="static">
         <Toolbar>
-          
           <IconButton
             edge="start"
             className={classes.menuButton}
             color="inherit"
             aria-label="open drawer"
           >
-            </IconButton>
+            <MenuIcon />
+          </IconButton>
+          <Typography className={classes.title} variant="h6" noWrap>
+            <NavLink to="/">Book Exchange</NavLink>
+          </Typography>
           <Typography className={classes.title} variant="h6" noWrap>
             <NavLink to="/subject">Subject</NavLink>
           </Typography>
           <Typography className={classes.title} variant="h6" noWrap>
             <NavLink to="/howitworks"> How it works</NavLink>
           </Typography>
-          <Typography className={classes.title} variant="h6" noWrap>
-            <NavLink to="/">Book Exchange</NavLink>
-          </Typography>
-          
           <Typography className={classes.title} variant="h6" noWrap>
             <NavLink to="/sellbook">Sell Book</NavLink>
           </Typography>

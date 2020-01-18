@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import SearchAppBar from "./components/Navbar";
+import Navbar from "./components/Navbar";
 import {
   Route,
   HashRouter
@@ -11,7 +11,7 @@ function App() {
   return (
     <div className="App">
       <HashRouter>
-         <SearchAppBar /> 
+         <Navbar /> 
       <div className="content">
        <Route exact path="/" component={Home}></Route>
       </div>
