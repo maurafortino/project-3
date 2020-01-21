@@ -6,6 +6,7 @@ import Home from "./pages/Home/Home";
 import Login from "./pages/Login";
 import HowItWorks from "./pages/HowItWorks/works";
 import HomeSearchbar from './components/Searchbar/HomeSearchbar';
+import Signup from  "./pages/Signup"
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
           <Route exact path="/" component={Home} />
           <Route exact path="/login" component={Login}/>
           <Route exact path="/HowItWorks" component={HowItWorks}/>
+          <Route exact path="/signup" component={Signup}/>
         </Switch>
       </div>
     </Router>
