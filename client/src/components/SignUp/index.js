@@ -35,17 +35,17 @@ class SignUp extends Component {
     password: "",
   };
 
-  // componentDidMount() {
-  //   this.loadUser();
-  // };
+  componentDidMount() {
+    this.loadUser();
+  };
 
-  // loadUser = id => {
-  //   API.getUser(id)
-  //   .then(res =>
-  //     this.setState({user: res.data, firstName: "", lastName: "", zipCode: "", major: "", email: "", password: "", })
-  //     )
-  //   .catch(err => console.log(err));
-  // }
+  loadUser = id => {
+    API.getUser(id)
+    .then(res =>
+      this.setState({user: res.data, firstName: "", lastName: "", zipCode: "", major: "", email: "", password: "", })
+      )
+    .catch(err => console.log(err));
+  };
 
   handleInputChange = event => {
     const { name, value } = event.target;
@@ -65,7 +65,7 @@ class SignUp extends Component {
         email: this.state.email,
         password: this.state.password
       })
-        // .then(res => console.log("one user added"))
+        .then(res => this.loadUser())
         .catch(err => console.log(err));
     }
 

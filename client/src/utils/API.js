@@ -10,7 +10,7 @@ export default {
     },
 
     getUsers: function() {
-    return axios.get("/api/user");
+    return axios.get("/api/users");
     }
 //   // Deletes the book with the given id
 //   deleteBook: function(id) {
