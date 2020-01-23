@@ -19,9 +19,10 @@ class UserPage extends Component {
     
       loadUsers = () => {
         API.getUsers()
-        .then(res =>
+        .then(res => {
+          console.log(res.data)
           this.setState({users: res.data, firstName: "", lastName: "", zipCode: "", major: "", email: "", password: "", })
-          )
+        })
         .catch(err => console.log(err));
       };
     render() {
