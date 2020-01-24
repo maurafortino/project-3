@@ -1,10 +1,14 @@
 import React from 'react';
+import { Link as RouterLink } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import clsx from 'clsx';
+import PropTypes from 'prop-types';
+// import Paper from '@material-ui/core/Paper';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import List from '@material-ui/core/List';
+// import List from '@material-ui/core/List';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
@@ -19,8 +23,11 @@ import HomeIcon from '@material-ui/icons/Home';
 import PersonAddIcon from '@material-ui/icons/PersonAdd';
 import HelpIcon from '@material-ui/icons/Help';
 import SubjectIcon from '@material-ui/icons/Subject';
-import SyncIcon from '@material-ui/icons/Sync';
-
+// import SyncIcon from '@material-ui/icons/Sync';
+import Login from "../../pages/Login";
+import SignUpForm from "../../pages/Signup";
+import HowItWorks from "../../pages/HowItWorks/works";
+import PickASubject from "../../pages/PickASubject/Subjects";
 
 const drawerWidth = 240;
 
@@ -86,6 +93,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
+
 export default function MiniDrawer() {
   const classes = useStyles();
   const theme = useTheme();
@@ -98,6 +106,35 @@ export default function MiniDrawer() {
   const handleDrawerClose = () => {
     setOpen(false);
   };
+
+  // export default function ListRouter() {
+  //   const classes = useStyles();
+
+  function ListItemLink(props) {
+    const { icon, primary, to } = props;
+
+    const renderLink = React.useMemo(
+      () => React.forwardRef((itemProps, ref) => <RouterLink to={to} ref={ref} {...itemProps} />),
+      [to],
+    );
+    return (
+      <li>
+        <ListItem button component={renderLink}>
+          {icon ? <ListItemIcon>{icon}</ListItemIcon> : null}
+          <ListItemText primary={primary} />
+        </ListItem>
+      </li>
+    );
+  }
+
+  ListItemLink.propTypes = {
+    icon: PropTypes.element,
+    primary: PropTypes.string.isRequired,
+    to: PropTypes.string.isRequired,
+  };
+
+
+
 
   return (
     <div className={classes.root}>
@@ -144,30 +181,29 @@ export default function MiniDrawer() {
           </IconButton>
         </div>
         <Divider />
-        <List>
-          {['LogIn', 'Signup'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <HomeIcon /> : <PersonAddIcon /> }</ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
-        </List>
-        <List>
-          {['How it works', 'Subject'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <HelpIcon /> : <SubjectIcon />}</ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
-        </List>
-        <List>
-          {['Sell a book'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <SyncIcon /> : <SubjectIcon />}</ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
-        </List>
+        {/* <MemoryRouter initialEntries={['/']} initialIndex={0}> */}
+          <div className={classes.root}>
+          <Router>
+          <Switch>
+          <Route exact path="/login" component={Login} icon={<HomeIcon />} />
+          <Route exact path="/Signup" component={SignUpForm}icon={<PersonAddIcon />}/>
+          <Route exact path="/HowItWorks" component={HowItWorks} icon={<HelpIcon />}/>
+          <Route exact path="/PickASubject" component={PickASubject} icon={<SubjectIcon />}/>
+          {/* <Route exact path="/viewpage" component={PickASubject} icon={<SubjectIcon />}/> */}
+        </Switch>
+        </Router>
+              {/* <Paper elevation={0}>
+              <List aria-label="main mailbox folders">
+                <ListItemLink to="/login" primary="LogIn" icon={<HomeIcon />} />
+                <ListItemLink to="/Signup" primary="SignUp" icon={<PersonAddIcon />} />
+                <ListItemLink to="/HowItWorks" primary="How It Works" icon={<HelpIcon />} />
+                <ListItemLink to="/PickASubject" primary="Pick A Subject" icon={<SubjectIcon />} />
+                <ListItemLink to="/viewpage" primary="Pick A Subject" icon={<SyncIcon />} />
+               </List> 
+              <Divider />
+            </Paper> */}
+          </div>
+        {/* </MemoryRouter>  */}
         <Divider />
       </Drawer>
       <main className={classes.content}>
@@ -179,3 +215,4 @@ export default function MiniDrawer() {
     </div>
   );
 }
+
