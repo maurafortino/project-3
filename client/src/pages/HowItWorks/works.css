@@ -1,0 +1,8 @@
+.container-fluid{
+    background-image: none;
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+    height: 100vh;
+    padding: 100px 200px;
+}
