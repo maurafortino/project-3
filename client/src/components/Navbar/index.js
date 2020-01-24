@@ -1,14 +1,10 @@
 import React from 'react';
-import { Link as RouterLink } from 'react-router-dom';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import clsx from 'clsx';
-import PropTypes from 'prop-types';
-// import Paper from '@material-ui/core/Paper';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-// import List from '@material-ui/core/List';
+import List from '@material-ui/core/List';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
@@ -24,10 +20,6 @@ import PersonAddIcon from '@material-ui/icons/PersonAdd';
 import HelpIcon from '@material-ui/icons/Help';
 import SubjectIcon from '@material-ui/icons/Subject';
 // import SyncIcon from '@material-ui/icons/Sync';
-import Login from "../../pages/Login";
-import SignUpForm from "../../pages/Signup";
-import HowItWorks from "../../pages/HowItWorks/works";
-import PickASubject from "../../pages/PickASubject/Subjects";
 
 const drawerWidth = 240;
 
@@ -107,33 +99,9 @@ export default function MiniDrawer() {
     setOpen(false);
   };
 
-  // export default function ListRouter() {
-  //   const classes = useStyles();
-
   function ListItemLink(props) {
-    const { icon, primary, to } = props;
-
-    const renderLink = React.useMemo(
-      () => React.forwardRef((itemProps, ref) => <RouterLink to={to} ref={ref} {...itemProps} />),
-      [to],
-    );
-    return (
-      <li>
-        <ListItem button component={renderLink}>
-          {icon ? <ListItemIcon>{icon}</ListItemIcon> : null}
-          <ListItemText primary={primary} />
-        </ListItem>
-      </li>
-    );
+    return <ListItem button component="a" {...props} />;
   }
-
-  ListItemLink.propTypes = {
-    icon: PropTypes.element,
-    primary: PropTypes.string.isRequired,
-    to: PropTypes.string.isRequired,
-  };
-
-
 
 
   return (
@@ -181,29 +149,27 @@ export default function MiniDrawer() {
           </IconButton>
         </div>
         <Divider />
-        {/* <MemoryRouter initialEntries={['/']} initialIndex={0}> */}
-          <div className={classes.root}>
-          <Router>
-          <Switch>
-          <Route exact path="/login" component={Login} icon={<HomeIcon />} />
-          <Route exact path="/Signup" component={SignUpForm}icon={<PersonAddIcon />}/>
-          <Route exact path="/HowItWorks" component={HowItWorks} icon={<HelpIcon />}/>
-          <Route exact path="/PickASubject" component={PickASubject} icon={<SubjectIcon />}/>
-          {/* <Route exact path="/viewpage" component={PickASubject} icon={<SubjectIcon />}/> */}
-        </Switch>
-        </Router>
-              {/* <Paper elevation={0}>
-              <List aria-label="main mailbox folders">
-                <ListItemLink to="/login" primary="LogIn" icon={<HomeIcon />} />
-                <ListItemLink to="/Signup" primary="SignUp" icon={<PersonAddIcon />} />
-                <ListItemLink to="/HowItWorks" primary="How It Works" icon={<HelpIcon />} />
-                <ListItemLink to="/PickASubject" primary="Pick A Subject" icon={<SubjectIcon />} />
-                <ListItemLink to="/viewpage" primary="Pick A Subject" icon={<SyncIcon />} />
-               </List> 
-              <Divider />
-            </Paper> */}
-          </div>
-        {/* </MemoryRouter>  */}
+        <List component="nav" aria-label="secondary mailbox folders">
+          <ListItemLink href="/login">
+            <ListItemIcon><HomeIcon /></ListItemIcon>
+            <ListItemText primary="LogIn" />
+            </ListItemLink>
+
+            <ListItemLink href="/Signup">
+            <ListItemIcon><PersonAddIcon /></ListItemIcon>
+            <ListItemText primary="SignUp" />
+            </ListItemLink>
+
+            <ListItemLink href="/HowItWorks">
+            <ListItemIcon><HelpIcon /></ListItemIcon>
+            <ListItemText primary="How It Works" />
+            </ListItemLink>
+
+            <ListItemLink href="PickASubject">
+            <ListItemIcon><SubjectIcon /></ListItemIcon>
+            <ListItemText primary="Pick a Subject" />
+            </ListItemLink>
+        </List>
         <Divider />
       </Drawer>
       <main className={classes.content}>
