@@ -9,7 +9,7 @@ class Home extends Component {
         return (
 
 
-            <div className="container-fluid">
+            <div className="container-fluid1">
                 <div className="row align-items-center">
                     <div className="buttons-div col-12">
                         <button type="button" className="btn btn-dark btn-lg"><Link to="/login">Login</Link></button>

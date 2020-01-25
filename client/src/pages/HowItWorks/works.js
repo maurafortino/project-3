@@ -6,7 +6,7 @@ class HowItWorks extends Component {
         return (
 
 
-            <div className="container-fluid">
+            <div className="container-fluid3">
 
                 <div className="description">
                     <p className="lead">

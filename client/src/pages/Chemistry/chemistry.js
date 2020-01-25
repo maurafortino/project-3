@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-// import "./works.css";
+
 
 class Chemistry extends Component {
     render() {
@@ -8,7 +8,7 @@ class Chemistry extends Component {
 
             <div className="container-fluid">
 
-            <Chemistry />
+            <ChemistryBooks />
 
 
             </div>

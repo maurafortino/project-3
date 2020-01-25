@@ -5,11 +5,13 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import Login from "./pages/Login";
 import SignUp from  "./pages/Signup";
+import Profile from "./pages/UserPage";
 import UserPage from "./pages/Users";
 import HowItWorks from "./pages/HowItWorks/works";
 import PickASubject from "./pages/PickASubject/Subjects";
 // import HomeSearchbar from './components/Searchbar/HomeSearchbar';
-import Chemistry from './components/Chemistry/chemistrycomp';
+import ChemistryBooks from './components/Chemistry/chemistrycomp';
+
 
 
 function App() {
@@ -26,7 +28,8 @@ function App() {
           <Route exact path="/HowItWorks" component={HowItWorks}/>
           <Route exact path="/users" component={UserPage}/>
           <Route exact path="/PickASubject" component={PickASubject}/>
-          <Route exact path="/chemistry" component={Chemistry}/>
+          <Route exact path="/ChemistryBooks" component={ChemistryBooks}/>
+          <Route exact path="/UserPage" component={Profile}/>
         </Switch>
       </div>
     </Router>

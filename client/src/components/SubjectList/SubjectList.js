@@ -38,7 +38,7 @@ export default function SubjectList() {
                         <Typography variant="h6" className={classes.title}>
                             Arts and Sciences
                         </Typography>
-                        <ListItemLink href="/chemistry">
+                        <ListItemLink href="/ChemistryBooks">
                             <ListItemText primary="Chemistry" />
                         </ListItemLink>
                         <ListItemLink href="#simple-list">
