@@ -16,9 +16,15 @@ const UserSchema = new Schema({
     },
     password: { type: String, required: true },
     date: { type: Date, default: Date.now }
-    //need books selling, books bought, books sold? probably bring this in from other database
 });
-console.log("before model")
+
+UserSchema.methods.generateHash = function(password){
+  return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
+}
+
+UserSchema.methods.validPassword = function(password){
+  return bcrypt.compareSynce(password, this.password)
+}
 const User= mongoose.model("User", UserSchema);
 
 
