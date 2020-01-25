@@ -20,7 +20,6 @@ class UserPage extends Component {
       loadUsers = () => {
         API.getUsers()
         .then(res => {
-          console.log(res.data)
           this.setState({users: res.data, firstName: "", lastName: "", zipCode: "", major: "", email: "", password: "", })
         })
         .catch(err => console.log(err));
@@ -32,6 +31,8 @@ class UserPage extends Component {
               <ul>
                 {this.state.users.map(user => (
                   <li key={user._id}>
+                    {user._id}
+                    <br/>
                     {user.firstName}
                     <br/>
                     {user.lastName}

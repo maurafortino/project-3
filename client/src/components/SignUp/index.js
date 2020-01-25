@@ -26,7 +26,7 @@ function Copyright() {
 class SignUp extends Component {
 
   state = {
-    user: [],
+    users: [],
     firstName: "",
     lastName: "",
     zipCode: "",
@@ -36,14 +36,14 @@ class SignUp extends Component {
   };
 
   componentDidMount() {
-    this.loadUser();
+    this.loadUsers();
   };
 
-  loadUser = id => {
-    API.getUser(id)
-    .then(res =>
-      this.setState({user: res.data, firstName: "", lastName: "", zipCode: "", major: "", email: "", password: "", })
-      )
+  loadUsers = () => {
+    API.getUsers()
+    .then(res => {
+      this.setState({users: res.data, firstName: "", lastName: "", zipCode: "", major: "", email: "", password: "", })
+    })
     .catch(err => console.log(err));
   };
 
@@ -65,7 +65,8 @@ class SignUp extends Component {
         email: this.state.email,
         password: this.state.password
       })
-        .then(res => this.loadUser())
+        .then(res => this.loadUsers())
+        .then(alert("signup successful go to login page to login!"))
         .catch(err => console.log(err));
     }
 
@@ -168,7 +169,7 @@ class SignUp extends Component {
               fullWidth
               variant="contained"
               color="primary"
-              onClick={this.handleFormSubmit}
+              onClick={this.handleOnClick}
             >
               Sign Up
     </Button>
