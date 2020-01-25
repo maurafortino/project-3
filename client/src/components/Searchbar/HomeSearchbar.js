@@ -28,17 +28,17 @@ export default function HomeSearchbar() {
   const classes = useStyles();
 
   return (
+    <div className="form">
     <Paper component="form" className={classes.root}>
-  
-      <InputBase
-        className={classes.input}
-        placeholder="Search for books"
-        inputProps={{ 'aria-label': 'Search for books' }}
-      />
-      <IconButton type="submit" className={classes.iconButton} aria-label="search">
-        <SearchIcon />
-      </IconButton>
-      
+        <InputBase
+          className={classes.input}
+          placeholder="Search for books"
+          inputProps={{ 'aria-label': 'Search for books' }}
+        />
+        <IconButton type="submit" className={classes.iconButton} aria-label="search">
+          <SearchIcon />
+        </IconButton>
     </Paper>
+    </div>
   );
 }
