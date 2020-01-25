@@ -2,11 +2,11 @@ import axios from "axios";
 
 export default {
     createUser: function(userData){
-        return axios.post("/api/user", userData);
+        return axios.post("/api/users", userData);
     },
 
     getUser: function(id) {
-        return(axios).get("/api/user/" + id);
+        return(axios).get("/api/users/" + id);
     },
 
     getUsers: function() {
