@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const YellowSchema = new Schema({
+const UserSchema = new Schema({
     firstName: { type: String, required: true },
     lastName: { type: String, required: true },
     zipCode: {type: String, required: true},
@@ -19,8 +19,8 @@ const YellowSchema = new Schema({
     //need books selling, books bought, books sold? probably bring this in from other database
 });
 console.log("before model")
-const Yellow = mongoose.model("Yellow", YellowSchema);
+const User= mongoose.model("User", UserSchema);
 
 
 
-module.exports = Yellow;
+module.exports = User;

@@ -6,10 +6,6 @@ router.route("/")
 .get(usersController.findAll)
 .post(usersController.create);
 
-router.route("/signup")
-  .post(usersController.create);
-
-  
 // Matches with "/api/user/:id"
 router
   .route("/:id")

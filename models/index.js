@@ -1,5 +1,5 @@
 module.exports = {
-    Yellow: require("./user"),
+    User: require("./user"),
     Books: require("./books")
   };
   

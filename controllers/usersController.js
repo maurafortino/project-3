@@ -4,7 +4,7 @@ const db = require("../models");
 module.exports = {
   findAll: function(req, res) {
     console.log("in users.find all");
-    db.Yellow
+    db.User
       .find({})
       .sort({ date: -1 })
       .then(dbModel => res.json(dbModel))
