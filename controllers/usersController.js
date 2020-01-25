@@ -3,9 +3,8 @@ const db = require("../models");
 // Defining methods for the usersController
 module.exports = {
   findAll: function(req, res) {
-    console.log("in users.find all");
     db.User
-      .find({})
+      .find(req.query)
       .sort({ date: -1 })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
@@ -13,7 +12,7 @@ module.exports = {
   findById: function(req, res) {
     db.User
       .findById(req.params.id)
-      .then(dbModel => res.json(dbModel))
+      .then(dbModel => console.log(res.json(dbModel)))
       .catch(err => res.status(422).json(err));
   },
   create: function(req, res) {
