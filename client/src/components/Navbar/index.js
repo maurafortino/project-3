@@ -19,7 +19,8 @@ import HomeIcon from '@material-ui/icons/Home';
 import PersonAddIcon from '@material-ui/icons/PersonAdd';
 import HelpIcon from '@material-ui/icons/Help';
 import SubjectIcon from '@material-ui/icons/Subject';
-// import SyncIcon from '@material-ui/icons/Sync';
+import SyncIcon from '@material-ui/icons/Sync';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 
 const drawerWidth = 240;
 
@@ -125,7 +126,7 @@ export default function MiniDrawer() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap>
+          <Typography variant="h6" noWrap >
             Book Exchange
           </Typography>
         </Toolbar>
@@ -150,8 +151,13 @@ export default function MiniDrawer() {
         </div>
         <Divider />
         <List component="nav" aria-label="secondary mailbox folders">
-          <ListItemLink href="/login">
+          <ListItemLink href="/">
             <ListItemIcon><HomeIcon /></ListItemIcon>
+            <ListItemText primary="Home" />
+            </ListItemLink>
+
+            <ListItemLink href="/login">
+            <ListItemIcon><AccountCircleIcon /></ListItemIcon>
             <ListItemText primary="LogIn" />
             </ListItemLink>
 
@@ -165,9 +171,14 @@ export default function MiniDrawer() {
             <ListItemText primary="How It Works" />
             </ListItemLink>
 
-            <ListItemLink href="PickASubject">
+            <ListItemLink href="/PickASubject">
             <ListItemIcon><SubjectIcon /></ListItemIcon>
             <ListItemText primary="Pick a Subject" />
+            </ListItemLink>
+
+            <ListItemLink href="SellABook">
+            <ListItemIcon><SyncIcon /></ListItemIcon>
+            <ListItemText primary="Sell A Book" />
             </ListItemLink>
         </List>
         <Divider />
