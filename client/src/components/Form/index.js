@@ -27,10 +27,6 @@ function Copyright() {
 class SignIn extends Component {
   state = {
     user: [],
-    firstName: "",
-    lastName: "",
-    zipCode: "",
-    major: "",
     email: "",
     password: "",
   };
@@ -39,10 +35,10 @@ class SignIn extends Component {
     this.loadUsers();
   };
 
-  loadUsers = () => {
+  loadUser = () => {
     API.getUsers()
     .then(res => {
-      this.setState({user: res.data, firstName: "", lastName: "", zipCode: "", major: "", email: "", password: "", })
+      this.setState({user: res.data, email: "", password: "", })
     })
     .catch(err => console.log(err));
   };
@@ -52,6 +48,19 @@ class SignIn extends Component {
     this.setState({
       [name]: value
     });
+  };
+
+  handleOnClick = event => {
+    event.preventDefault();
+    if (this.state.email && this.state.password) {
+      API.findEmail({
+        email: this.state.email,
+        password: this.state.password
+      })
+        .then(res => this.loadUser())
+        .catch(err => console.log(err));
+    }
+
   };
 
   render () {

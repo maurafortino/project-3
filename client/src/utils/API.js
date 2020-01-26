@@ -4,11 +4,12 @@ export default {
     createUser: function(userData){
         return axios.post("/api/users", userData);
     },
-
+    findEmail: function(email){
+        return axios.get("api/users" + email);
+    },
     getUser: function(id) {
         return(axios).get("/api/users/" + id);
     },
-
     getUsers: function() {
     return axios.get("/api/users");
     }

@@ -18,13 +18,14 @@ const UserSchema = new Schema({
     date: { type: Date, default: Date.now }
 });
 
-UserSchema.methods.generateHash = function(password){
-  return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
-}
+// UserSchema.methods.generateHash = function(password){
+//   return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
+// }
 
-UserSchema.methods.validPassword = function(password){
-  return bcrypt.compareSynce(password, this.password)
-}
+// UserSchema.methods.validPassword = function(password){
+//   return bcrypt.compareSynce(password, this.password)
+// }
+
 const User= mongoose.model("User", UserSchema);
 
 
