@@ -10,11 +10,13 @@ class Home extends Component {
 
 
             <div className="container-fluid1">
+               
+
                 <div className="row align-items-center">
                     <div className="buttons-div col-12">
                         <button type="button" className="btn btn-dark btn-lg"><Link to="/login">Login</Link></button>
                         <button type="button" className="btn btn-dark btn-lg"><Link to="/signup">Sign up</Link></button>
-            
+
                     </div>
                 </div>
 

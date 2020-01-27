@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import CenteredTabs from "../components/UserPage/index";
+import CenteredTabs from "../../components/UserPage/index";
+import "../../pages/UserPage/UserPage.css";
 
 
 class Profile extends Component {

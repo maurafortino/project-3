@@ -9,7 +9,7 @@ class Subjects extends Component {
         return (
 
 
-            <div className="container-fluid">
+            <div className="container-fluid2">
                <AllSubjects />
 
             </div>

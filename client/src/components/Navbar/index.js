@@ -23,6 +23,7 @@ import SyncIcon from '@material-ui/icons/Sync';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import SearchIcon from '@material-ui/icons/Search';
 import InputBase from '@material-ui/core/InputBase';
+import PhoneIcon from '@material-ui/icons/Phone';
 
 const drawerWidth = 240;
 
@@ -153,6 +154,7 @@ export default function MiniDrawer() {
 
 
   return (
+  
     <div className={classes.root}>
       <CssBaseline />
       <AppBar
@@ -240,15 +242,15 @@ export default function MiniDrawer() {
             <ListItemIcon><SyncIcon /></ListItemIcon>
             <ListItemText primary="Sell A Book" />
           </ListItemLink>
+        
+        <ListItemLink href="Contact">
+            <ListItemIcon><PhoneIcon /></ListItemIcon>
+            <ListItemText primary="Contact Us" />
+          </ListItemLink>
         </List>
         <Divider />
       </Drawer>
-      <main className={classes.content}>
-        <div className={classes.toolbar} />
-        <Typography paragraph>
-          A simple and easy way for students to exchange books with out the expensive cost.
-        </Typography>
-      </main>
+      
     </div>
   );
 }

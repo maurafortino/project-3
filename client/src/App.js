@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import Login from "./pages/Login";
 import SignUp from  "./pages/Signup";
-import Profile from "./pages/UserPage";
+import Profile from "./pages/UserPage/UserPage";
 import UserPage from "./pages/Users";
 import HowItWorks from "./pages/HowItWorks/works";
 import PickASubject from "./pages/PickASubject/Subjects";

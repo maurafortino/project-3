@@ -1,13 +1,18 @@
-.container-fluid{
+.container-fluid2{
     background-image: url("../../assets/images/books.jpg");
     background-size: cover;
     background-position: center;
     margin: 0;
-    height: 100vh;
+    /* height: 100vh; */
     padding: 100px 200px;
 }
 
-.MuiList-root{
-    background-color:rgba(255, 166, 0, 0.87);
+/* .MuiGrid-root{
+    background-color: whitesmoke;
+} */
+
+.MuiGrid-root .MuiCard-root{
+    background-color: rgba(216, 216, 216, 0.74);
 }
+
 

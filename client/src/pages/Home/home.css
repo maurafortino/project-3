@@ -6,6 +6,9 @@
     height: 100vh;
     padding: 100px 200px;
 }
+.MuiList-root{
+    background-color:rgba(255, 166, 0, 0.87);
+}
 
 .btn{
     margin: 5px;
