@@ -213,10 +213,13 @@ export default function MiniDrawer() {
         </div>
         <Divider />
         <List component="nav" aria-label="secondary mailbox folders">
-          <ListItemLink href="/">
+          <Link to="/">
+          <ListItemLink >
             <ListItemIcon><HomeIcon /></ListItemIcon>
             <ListItemText primary="Home" />
           </ListItemLink>
+          </Link>
+
           <Link to='/login'>
           <ListItemLink >
             <ListItemIcon><AccountCircleIcon /></ListItemIcon>
@@ -224,30 +227,40 @@ export default function MiniDrawer() {
           </ListItemLink>
           </Link>
 
-          <ListItemLink href="/signup">
+          <Link to="/signup">
+          <ListItemLink >
             <ListItemIcon><PersonAddIcon /></ListItemIcon>
             <ListItemText primary="SignUp" />
           </ListItemLink>
+          </Link>
 
-          <ListItemLink href="/HowItWorks">
+          <Link to="/HowItWorks">
+          <ListItemLink >
             <ListItemIcon><HelpIcon /></ListItemIcon>
             <ListItemText primary="How It Works" />
           </ListItemLink>
+          </Link>
 
-          <ListItemLink href="/PickASubject">
+          <Link to="/PickASubject">
+          <ListItemLink >
             <ListItemIcon><SubjectIcon /></ListItemIcon>
             <ListItemText primary="Pick a Subject" />
           </ListItemLink>
+          </Link>
 
-          <ListItemLink href="SellABook">
+          <Link to="/SellABook">
+          <ListItemLink >
             <ListItemIcon><SyncIcon /></ListItemIcon>
             <ListItemText primary="Sell A Book" />
           </ListItemLink>
+          </Link>
         
-        <ListItemLink href="Contact">
+        <Link to="/Contact">
+        <ListItemLink>
             <ListItemIcon><PhoneIcon /></ListItemIcon>
             <ListItemText primary="Contact Us" />
           </ListItemLink>
+          </Link>
         </List>
         <Divider />
       </Drawer>
