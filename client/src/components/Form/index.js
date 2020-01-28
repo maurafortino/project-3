@@ -9,7 +9,10 @@ import Box from '@material-ui/core/Box';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
-import API from "../../utils/API";
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { login } from '../../actions/authActions';
+import { clearErrors } from '../../actions/errorActions';
 
 function Copyright() {
   return (
@@ -26,41 +29,46 @@ function Copyright() {
 
 class SignIn extends Component {
   state = {
-    user: [],
-    email: "",
-    password: "",
+    email: '',
+    password: '',
+    msg: null
   };
 
-  componentDidMount() {
-    this.loadUsers();
+  static propTypes = {
+    isAuthenticated: PropTypes.bool,
+    error: PropTypes.object.isRequired,
+    login: PropTypes.func.isRequired,
+    clearErrors: PropTypes.func.isRequired
   };
 
-  loadUser = () => {
-    API.getUsers()
-    .then(res => {
-      this.setState({user: res.data, email: "", password: "", })
-    })
-    .catch(err => console.log(err));
-  };
-
-  handleInputChange = event => {
-    const { name, value } = event.target;
-    this.setState({
-      [name]: value
-    });
-  };
-
-  handleOnClick = event => {
-    event.preventDefault();
-    if (this.state.email && this.state.password) {
-      API.findEmail({
-        email: this.state.email,
-        password: this.state.password
-      })
-        .then(res => this.loadUser())
-        .catch(err => console.log(err));
+  componentDidUpdate(prevProps) {
+    const { error } = this.props;
+    if (error !== prevProps.error) {
+      // Check for register error
+      if (error.id === 'LOGIN_FAIL') {
+        this.setState({ msg: error.msg.msg });
+      } else {
+        this.setState({ msg: null });
+      }
     }
+  }
 
+  onChange = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+
+  onSubmit = e => {
+    e.preventDefault();
+
+    const { email, password } = this.state;
+
+    const user = {
+      email,
+      password
+    };
+
+    // Attempt to login
+    this.props.login(user);
   };
 
   render () {
@@ -81,7 +89,7 @@ class SignIn extends Component {
             required
             fullWidth
             value={this.state.email}
-            onChange={this.handleInputChange}
+            onChange={this.onChange}
             id="email"
             label="Email Address"
             name="email"
@@ -98,7 +106,7 @@ class SignIn extends Component {
             type="password"
             id="password"
             value={this.state.password}
-            onChange={this.handleInputChange}
+            onChange={this.onChange}
             autoComplete="current-password"
           />
           <Button
@@ -106,7 +114,7 @@ class SignIn extends Component {
             fullWidth
             variant="contained"
             color="primary"
-            onClick={this.handleOnClick}
+            onClick={this.onClick}
           >
             Sign In
           </Button>
@@ -115,6 +123,9 @@ class SignIn extends Component {
               <Link href="/signup" variant="body2">
                 {"Don't have an account? Sign Up"}
               </Link>
+              <p>
+                {this.state.message}
+              </p>
             </Grid>
           </Grid>
         </form>
@@ -127,4 +138,12 @@ class SignIn extends Component {
 }
 }
 
-export default SignIn
+const mapStateToProps = state => ({
+  isAuthenticated: state.auth.isAuthenticated,
+  error: state.error
+});
+
+export default connect(
+  mapStateToProps,
+  { login, clearErrors }
+)(SignIn);

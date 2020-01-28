@@ -1,0 +1,4 @@
+{
+    "mongoURI": "mongodb://heroku_t6j0j1wq:heroku_t6j0j1wq@ds153845.mlab.com:53845/heroku_t6j0j1wq",
+    "jwtSecret" : "secretKey"
+}

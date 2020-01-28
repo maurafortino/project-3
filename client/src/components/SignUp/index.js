@@ -33,6 +33,8 @@ class SignUp extends Component {
     major: "",
     email: "",
     password: "",
+    message: ""
+
   };
 
   componentDidMount() {
@@ -47,6 +49,20 @@ class SignUp extends Component {
     .catch(err => console.log(err));
   };
 
+  // saveUser = () => {
+  //   API.createUser({
+  //     firstName: this.state.firstName,
+  //     lastName: this.state.lastName,
+  //     zipCode: this.state.zipCode,
+  //     major: this.state.major,
+  //     email: this.state.email,
+  //     password: this.state.password
+  //   })
+  //     .then(res => this.loadUsers())
+  //     .then(alert("signup successful go to login page to login!"))
+  //     .catch(err => console.log(err));
+  // }
+
   handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({
@@ -56,7 +72,11 @@ class SignUp extends Component {
 
   handleOnClick = event => {
     event.preventDefault();
-    if (this.state.firstName && this.state.lastName && this.state.zipCode && this.state.major && this.state.email && this.state.password) {
+    const { firstName, lastName, zipCode, major, email, password} = this.state;
+    // Simple validation
+    if(!firstName || !lastName || !zipCode || !major || !email || !password) {
+      this.setState({message: "please enter all fields"});
+    }
       API.createUser({
         firstName: this.state.firstName,
         lastName: this.state.lastName,
@@ -68,9 +88,12 @@ class SignUp extends Component {
         .then(res => this.loadUsers())
         .then(alert("signup successful go to login page to login!"))
         .catch(err => console.log(err));
-    }
-
-  };
+  }
+    // API.findEmail({
+    //   email: this.state.email
+    // }).then(res => this.saveUser())
+    // .catch(err => console.log(err))
+    // }
 
   render() {
     return (
@@ -177,7 +200,10 @@ class SignUp extends Component {
               <Grid item>
                 <Link href="/login" variant="body2">
                   Already have an account? Sign in
-        </Link>
+                </Link>
+                <p>
+                  {this.state.message}
+                </p>
               </Grid>
             </Grid>
           </form>
