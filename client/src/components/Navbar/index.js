@@ -24,7 +24,7 @@ import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import SearchIcon from '@material-ui/icons/Search';
 import InputBase from '@material-ui/core/InputBase';
 import PhoneIcon from '@material-ui/icons/Phone';
-
+import {Link} from 'react-router-dom'
 const drawerWidth = 240;
 
 const useStyles = makeStyles(theme => ({
@@ -148,7 +148,7 @@ export default function MiniDrawer() {
   };
 
   function ListItemLink(props) {
-    return <ListItem button component="a" {...props
+    return <ListItem button component='a' {...props
     } />;
   }
 
@@ -217,11 +217,12 @@ export default function MiniDrawer() {
             <ListItemIcon><HomeIcon /></ListItemIcon>
             <ListItemText primary="Home" />
           </ListItemLink>
-
-          <ListItemLink href="/login">
+          <Link to='/login'>
+          <ListItemLink >
             <ListItemIcon><AccountCircleIcon /></ListItemIcon>
             <ListItemText primary="LogIn" />
           </ListItemLink>
+          </Link>
 
           <ListItemLink href="/signup">
             <ListItemIcon><PersonAddIcon /></ListItemIcon>

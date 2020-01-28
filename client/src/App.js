@@ -11,7 +11,7 @@ import HowItWorks from "./pages/HowItWorks/works";
 import PickASubject from "./pages/PickASubject/Subjects";
 // import HomeSearchbar from './components/Searchbar/HomeSearchbar';
 import ChemistryBooks from './components/Chemistry/chemistrycomp';
-// import SellBook from "./pages/HowItWorks/works";
+import SellABook from "./pages/SellABook/SellBook";
 
 
 function App() {
@@ -30,7 +30,7 @@ function App() {
           <Route exact path="/PickASubject" component={PickASubject}/>
           <Route exact path="/ChemistryBooks" component={ChemistryBooks}/>
           <Route exact path="/UserPage" component={Profile}/>
-          {/* <Route exact path="/SellBook" component={SellBook}/> */}
+          <Route exact path="/SellABook" component={SellABook}/>
         </Switch>
       </div>
     </Router>
