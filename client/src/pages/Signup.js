@@ -8,7 +8,6 @@ import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import API from "../utils/API";
 
-
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
@@ -66,15 +65,17 @@ class SignUp extends Component {
         password: this.state.password
       })
         .then(res => this.loadUsers())
-        .then(() => this.props.history.push("/UserPage"))
+        .then( () => this.props.history.push("/UserPage"))
         .catch(err => console.log(err));
     }
 
   };
 
   render() {
+    console.log(this.props);
+    console.log(this.props.history);
+    
     return (
-
       <Container component="main" maxWidth="xs">
         <div className="form">
           <Typography component="h1" variant="h5">
