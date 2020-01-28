@@ -17,12 +17,12 @@ export default function SellBook() {
   return (
     <form className={classes.root} noValidate autoComplete="off">
       <div>
-        <TextField error id="standard-error" label="Error" defaultValue="Hello World" />
+        <TextField error id="standard-error" label="Error" defaultValue="Title" />
         <TextField
           error
           id="standard-error-helper-text"
           label="Error"
-          defaultValue="Hello World"
+          defaultValue="Title"
           helperText="Incorrect entry."
         />
       </div>
@@ -31,14 +31,14 @@ export default function SellBook() {
           error
           id="filled-error"
           label="Error"
-          defaultValue="Hello World"
+          defaultValue="Author"
           variant="filled"
         />
         <TextField
           error
           id="filled-error-helper-text"
           label="Error"
-          defaultValue="Hello World"
+          defaultValue="Year"
           helperText="Incorrect entry."
           variant="filled"
         />
@@ -48,7 +48,7 @@ export default function SellBook() {
           error
           id="outlined-error"
           label="Error"
-          defaultValue="Hello World"
+          defaultValue="ISBN #"
           variant="outlined"
         />
         <TextField
