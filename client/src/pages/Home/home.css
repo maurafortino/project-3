@@ -1,10 +1,13 @@
-.container-fluid{
+.container-fluid1{
     background-image: url("../../assets/images/college-students.jpg");
     background-size: cover;
     background-position: center;
     margin: 0;
     height: 100vh;
     padding: 100px 200px;
+}
+.MuiList-root{
+    background-color:rgba(255, 166, 0, 0.87);
 }
 
 .btn{

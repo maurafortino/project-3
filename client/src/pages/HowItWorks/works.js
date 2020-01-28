@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-
+import "./works.css";
 
 class HowItWorks extends Component {
     render() {
         return (
 
 
-            <div className="container-fluid">
+            <div className="container-fluid3">
 
                 <div className="description">
                     <p className="lead">

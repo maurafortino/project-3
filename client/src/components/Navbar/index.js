@@ -1,6 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { fade, makeStyles, useTheme } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -20,7 +20,10 @@ import PersonAddIcon from '@material-ui/icons/PersonAdd';
 import HelpIcon from '@material-ui/icons/Help';
 import SubjectIcon from '@material-ui/icons/Subject';
 import SyncIcon from '@material-ui/icons/Sync';
-
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import SearchIcon from '@material-ui/icons/Search';
+import InputBase from '@material-ui/core/InputBase';
+import PhoneIcon from '@material-ui/icons/Phone';
 
 const drawerWidth = 240;
 
@@ -73,18 +76,63 @@ const useStyles = makeStyles(theme => ({
       width: theme.spacing(9) + 1,
     },
   },
-  toolbar: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'flex-end',
-    padding: theme.spacing(0, 1),
-    ...theme.mixins.toolbar,
-  },
-  content: {
+  title: {
     flexGrow: 1,
-    padding: theme.spacing(3),
+    display: 'none',
+    [theme.breakpoints.up('sm')]: {
+      display: 'inline-flex',
+    },
+    toolbar: {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'flex-end',
+      padding: theme.spacing(0, 1),
+      ...theme.mixins.toolbar,
+    },
+    content: {
+      flexGrow: 1,
+      padding: theme.spacing(3),
+    },
+    search: {
+      position: 'flex',
+      borderRadius: theme.shape.borderRadius,
+      backgroundColor: fade(theme.palette.common.white, 0.30),
+      '&:hover': {
+        backgroundColor: fade(theme.palette.common.white, 0.25),
+      },
+      marginRight: 1,
+      width: '100%',
+      [theme.breakpoints.up('sm')]: {
+        marginRight: theme.spacing(1),
+        width: 'auto',
+      },
+    },
+    searchIcon: {
+      width: theme.spacing(7),
+      height: '100%',
+      position: 'absolute',
+      pointerEvents: 'none',
+      display: 'inline-flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
   },
+  inputRoot: {
+    color: 'inherit',
+  },
+  inputInput: {
+    padding: theme.spacing(1, 1, 1, 7),
+    transition: theme.transitions.create('width'),
+    width: '100%',
+    [theme.breakpoints.up('sm')]: {
+      width: 120,
+      '&:focus': {
+        width: 200,
+      },
+    }
+  }
 }));
+
 
 export default function MiniDrawer() {
   const classes = useStyles();
@@ -99,7 +147,14 @@ export default function MiniDrawer() {
     setOpen(false);
   };
 
+  function ListItemLink(props) {
+    return <ListItem button component="a" {...props
+    } />;
+  }
+
+
   return (
+  
     <div className={classes.root}>
       <CssBaseline />
       <AppBar
@@ -120,9 +175,22 @@ export default function MiniDrawer() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap>
+          <Typography className={classes.title} variant="h6" noWrap >
             Book Exchange
           </Typography>
+          <div className={classes.search}>
+            <div className={classes.searchIcon}>
+              <SearchIcon />
+            </div>
+            <InputBase
+              placeholder="Search…"
+              classes={{
+                root: classes.inputRoot,
+                input: classes.inputInput,
+              }}
+              inputProps={{ 'aria-label': 'search' }}
+            />
+          </div>
         </Toolbar>
       </AppBar>
       <Drawer
@@ -144,38 +212,46 @@ export default function MiniDrawer() {
           </IconButton>
         </div>
         <Divider />
-        <List>
-          {['LogIn', 'Signup'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <HomeIcon /> : <PersonAddIcon /> }</ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
-        </List>
-        <List>
-          {['How it works', 'Subject'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <HelpIcon /> : <SubjectIcon />}</ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
-        </List>
-        <List>
-          {['Sell a book'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <SyncIcon /> : <SubjectIcon />}</ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
+        <List component="nav" aria-label="secondary mailbox folders">
+          <ListItemLink href="/">
+            <ListItemIcon><HomeIcon /></ListItemIcon>
+            <ListItemText primary="Home" />
+          </ListItemLink>
+
+          <ListItemLink href="/login">
+            <ListItemIcon><AccountCircleIcon /></ListItemIcon>
+            <ListItemText primary="LogIn" />
+          </ListItemLink>
+
+          <ListItemLink href="/signup">
+            <ListItemIcon><PersonAddIcon /></ListItemIcon>
+            <ListItemText primary="SignUp" />
+          </ListItemLink>
+
+          <ListItemLink href="/HowItWorks">
+            <ListItemIcon><HelpIcon /></ListItemIcon>
+            <ListItemText primary="How It Works" />
+          </ListItemLink>
+
+          <ListItemLink href="/PickASubject">
+            <ListItemIcon><SubjectIcon /></ListItemIcon>
+            <ListItemText primary="Pick a Subject" />
+          </ListItemLink>
+
+          <ListItemLink href="SellABook">
+            <ListItemIcon><SyncIcon /></ListItemIcon>
+            <ListItemText primary="Sell A Book" />
+          </ListItemLink>
+        
+        <ListItemLink href="Contact">
+            <ListItemIcon><PhoneIcon /></ListItemIcon>
+            <ListItemText primary="Contact Us" />
+          </ListItemLink>
         </List>
         <Divider />
       </Drawer>
-      <main className={classes.content}>
-        <div className={classes.toolbar} />
-        <Typography paragraph>
-          A simple and easy way for students to exchange books with out the expensive cost.
-        </Typography>
-      </main>
+      
     </div>
   );
 }
+
