@@ -3,7 +3,8 @@ import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Card from '@material-ui/core/Card';
-import { Button } from '@material-ui/core';
+import  Button  from '@material-ui/core/Button';
+import "../../pages/SellABook/index.css";
 
 // class SellBook extends Component {
 
@@ -60,90 +61,89 @@ import { Button } from '@material-ui/core';
 
 
 
-  const useStyles = makeStyles(theme => ({
-    root: {
-      '& .MuiTextField-root': {
-        margin: theme.spacing(1),
-        width: 200,
-      },
+const useStyles = makeStyles(theme => ({
+  root: {
+    '& .MuiTextField-root': {
+      margin: theme.spacing(1),
+      width: 250,
     },
-  }));
+  },
+}));
 
 export default function FormPropsTextFields() {
   const classes = useStyles();
 
-  // render() {
-    return (
-      <form className={classes.root} noValidate autoComplete="off">
 
-        <Grid container spacing={2}>
-          <Grid item xs={12} sm={6} >
-            <Card className={classes.card}>
-              <div>
+  return (
+    <div className="picture">
+      
+    <form className={classes.root} noValidate autoComplete="off">
 
-                <TextField
-                  required
-                  helperText="Title"
-                  id="filled-required"
-                  label="Required"
-                  variant="filled"
-                />
+      <Grid container spacing={2}>
+        <Grid item xs={12} >
+          <Card className={classes.card}>
+            <div>
+              <TextField
+                required
+                helperText="Title"
+                id="filled-required"
+                label="Required"
+                variant="filled"
+              />
 
-                <TextField
-                  required
-                  id="filled-required"
-                  label="Required"
-                  helperText="Author"
-                  variant="filled"
-                />
+              <TextField
+                required
+                id="filled-required"
+                label="Required"
+                helperText="Author"
+                variant="filled"
+              />
 
 
-                <TextField
-                  id="filled-number"
-                  label="Year"
-                  type="number"
-                  InputLabelProps={{
-                    shrink: true,
-                  }}
-                  variant="filled"
-                />
-                <TextField
-                  required
-                  id="filled-required"
-                  label=""
-                  helperText="Subject"
-                  variant="filled"
-                />
-                <TextField
-                  id="filled-number"
-                  label=""
-                  type="number"
-                  helperText="ISBN#"
-                  InputLabelProps={{
-                    shrink: true,
-                  }}
-                  variant="filled"
-                />
-                <TextField
-                  required
-                  id="filled-required"
-                  label=""
-                  helperText="Condition"
-                  variant="filled"
-                />
+              <TextField
+                id="filled-number"
+                label="Year"
+                type="number"
+                InputLabelProps={{
+                  shrink: true,
+                }}
+                variant="filled"
+              />
+              <TextField
+                required
+                id="filled-required"
+                label=""
+                helperText="Subject"
+                variant="filled"
+              />
+              <TextField
+                id="filled-number"
+                label=""
+                type="number"
+                helperText="ISBN#"
+                InputLabelProps={{
+                  shrink: true,
+                }}
+                variant="filled"
+              />
+              <TextField
+                required
+                id="filled-required"
+                label=""
+                helperText="Condition"
+                variant="filled"
+              />
 
-              </div>
-              <div><Button>Sell Book!</Button></div>
-            </Card>
-          </Grid>
+            </div>
+            <div><Button variant="outlined">Sell Book!</Button></div>
+          </Card>
         </Grid>
+      </Grid>
+    </form>
+    </div >
 
-      </form>
+  );
+}
 
-    );
-  }
-// };
-
-// export default SellABook;
 
 
