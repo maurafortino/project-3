@@ -4,13 +4,17 @@ export default {
     createUser: function(userData){
         return axios.post("/api/users", userData);
     },
-
-    getUser: function(id) {
-        return(axios).get("/api/users/" + id);
-    },
-
     getUsers: function() {
     return axios.get("/api/users");
+    },
+    getBooks: function(){
+        return axios.get("/api/books");
+    },
+    getSubject: function(subject){
+        return axios.get("api/books/" + subject);
+    },
+    createBook: function(userData){
+        return axios.post("/api/books", userData);
     }
 //   // Deletes the book with the given id
 //   deleteBook: function(id) {

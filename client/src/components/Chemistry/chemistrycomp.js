@@ -60,8 +60,6 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-
 export default function Album() {
   const classes = useStyles();
 
@@ -91,20 +89,141 @@ export default function Album() {
         <Container className={classes.cardGrid} maxWidth="md">
           {/* End hero unit */}
           <Grid container spacing={4}>
-            {cards.map(card => (
-              <Grid item key={card} xs={12} sm={6} md={4}>
+              <Grid xs={12} sm={6} md={4}>
                 <Card className={classes.card}>
                   <CardMedia
                     className={classes.cardMedia}
-                    image="https://source.unsplash.com/random"
-                    title="Image title"
+                    image="https://cs.cheggcdn.com/covers2/49410000/49417227_1466702312_Width288.jpg"
+                    title="Chemistry Book"
                   />
                   <CardContent className={classes.cardContent}>
                     <Typography gutterBottom variant="h5" component="h2">
-                      Chemistry
+                      Title: Chemistry
                     </Typography>
                     <Typography>
-                      This is a media card. You can use this section to describe the content.
+                      Author: John E. McMurry
+                      <br/>
+                      Condition: Good
+                      <br/>
+                      owner email: serenaVDW@gmail.com
+                    </Typography>
+                  </CardContent>
+                  <CardActions>
+                    <Button size="small" color="primary">
+                      View
+                    </Button>
+                    <Button size="small" color="primary">
+                      Edit
+                    </Button>
+                  </CardActions>
+                </Card>
+              </Grid>
+              <Grid xs={12} sm={6} md={4}>
+                <Card className={classes.card}>
+                  <CardMedia
+                    className={classes.cardMedia}
+                    image="hhttps://cs.cheggcdn.com/covers2/58740000/58749685_1492537361_Width288.jpg"
+                    title="Chemistry Book"
+                  />
+                  <CardContent className={classes.cardContent}>
+                    <Typography gutterBottom variant="h5" component="h2">
+                      Title: Chemistry: Structure and Properities
+                    </Typography>
+                    <Typography>
+                      Author: Nivaldo J. Tro
+                      <br/>
+                      Condition: Great
+                      <br/>
+                      owner email: serenaVDW@gmail.com
+                    </Typography>
+                  </CardContent>
+                  <CardActions>
+                    <Button size="small" color="primary">
+                      View
+                    </Button>
+                    <Button size="small" color="primary">
+                      Edit
+                    </Button>
+                  </CardActions>
+                </Card>
+              </Grid>
+              <Grid xs={12} sm={6} md={4}>
+                <Card className={classes.card}>
+                  <CardMedia
+                    className={classes.cardMedia}
+                    image="https://cs.cheggcdn.com/covers2/58740000/58749727_1492011213_Width288.jpg"
+                    title="Chemistry Book"
+                  />
+                  <CardContent className={classes.cardContent}>
+                    <Typography gutterBottom variant="h5" component="h2">
+                      Title: Chemistry: An Introduction to General, Organic, and Biological Chemistry
+                    </Typography>
+                    <Typography>
+                      Author: Karen C. Timberlake
+                      <br/>
+                      Condition: Okay
+                      <br/>
+                      owner email: brandybee13@gmail.com
+                    </Typography>
+                  </CardContent>
+                  <CardActions>
+                    <Button size="small" color="primary">
+                      View
+                    </Button>
+                    <Button size="small" color="primary">
+                      Edit
+                    </Button>
+                  </CardActions>
+                </Card>
+              </Grid>
+
+              <Grid xs={12} sm={6} md={4}>
+                <Card className={classes.card}>
+                  <CardMedia
+                    className={classes.cardMedia}
+                    image="https://cs.cheggcdn.com/covers2/58910000/58915303_1483653422_Width288.jpg"
+                    title="Chemistry Book"
+                  />
+                  <CardContent className={classes.cardContent}>
+                    <Typography gutterBottom variant="h5" component="h2">
+                      Title: Chemistry: The Central Science
+                    </Typography>
+                    <Typography>
+                      Author: Theodore E. Brown
+                      <br/>
+                      Condition: Great
+                      <br/>
+                      owner email: kae14oh@gmail.com
+                    </Typography>
+                  </CardContent>
+                  <CardActions>
+                    <Button size="small" color="primary">
+                      View
+                    </Button>
+                    <Button size="small" color="primary">
+                      Edit
+                    </Button>
+                  </CardActions>
+                </Card>
+              </Grid>
+
+              <Grid xs={12} sm={6} md={4}>
+                <Card className={classes.card}>
+                  <CardMedia
+                    className={classes.cardMedia}
+                    image="https://cs.cheggcdn.com/covers2/53230000/53235317_1456501034_Width288.jpg"
+                    title="Chemistry Book"
+                  />
+                  <CardContent className={classes.cardContent}>
+                    <Typography gutterBottom variant="h5" component="h2">
+                      Title: Chemistry: A Molecular Approach
+                    </Typography>
+                    <Typography>
+                      Author: Nivaldo J. Tro
+                      <br/>
+                      Condition: good
+                      <br/>
+                      owner email: maurafortino@gmail.com
                     </Typography>
                   </CardContent>
                   <CardActions>
@@ -117,7 +236,7 @@ export default function Album() {
                   </CardActions>
                 </Card>
               </Grid>
-            ))}
+              
           </Grid>
         </Container>
       </main>

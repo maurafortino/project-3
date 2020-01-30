@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Album from "../../components/Chemistry/chemistrycomp";
 
 
 class Chemistry extends Component {
@@ -8,7 +9,7 @@ class Chemistry extends Component {
 
             <div className="container-fluid">
 
-            <ChemistryBooks />
+            <Album />
 
 
             </div>
