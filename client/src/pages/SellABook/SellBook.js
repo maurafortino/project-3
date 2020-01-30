@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-// import TextField from '@material-ui/core/TextField';
-// import Grid from '@material-ui/core/Grid';
-// import Card from '@material-ui/core/Card';
-// import { Button } from '@material-ui/core';
+import Grid from '@material-ui/core/Grid';
+import Card from '@material-ui/core/Card';
+import Container from '@material-ui/core/Container';
 import API from "../../utils/API";
-import "./index.css"
+import "../SellABook/index.css"
+import { Typography } from '@material-ui/core';
 
 
 class SellBook extends Component {
@@ -63,6 +63,23 @@ class SellBook extends Component {
 
   render() {
     return (
+      <div className="contsignup">
+        <Container className="reminder">
+        <div>
+          <Card>
+            <Typography variant="h6" align="center">
+              Please Enter in the book information to sell your book!
+            </Typography>
+          </Card>
+        </div>
+        </Container>
+        
+      <Container className="sellbookform">
+        
+      <Grid container spacing={2}>
+      
+      <Grid item xs={12} sm={6}>
+     
       <form>
         <div className="form-group">
           <label>Title (required)</label>
@@ -102,6 +119,10 @@ class SellBook extends Component {
         </div>
         <button type="submit" className="btn btn-primary" onClick={this.handleOnClick}>Submit</button>
       </form>
+      </Grid>
+      </Grid>
+      </Container>
+      </div>
 
 
     );
