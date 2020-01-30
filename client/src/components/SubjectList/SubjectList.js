@@ -6,6 +6,7 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import List from '@material-ui/core/List';
 import Card from '@material-ui/core/Card';
+import { Link } from "react-router-dom";
 
 
 
@@ -46,9 +47,9 @@ export default function SubjectList() {
                             <Typography variant="h6" className={classes.title}>
                                 Arts and Sciences
                         </Typography>
-                            <ListItemLink href="/ChemistryBooks">
+                            <Link to="/books/chemistry">
                                 <ListItemText primary="Chemistry" />
-                            </ListItemLink>
+                            </Link>
                             <ListItemLink href="#simple-list">
                                 <ListItemText primary="Criminology" />
                             </ListItemLink>
