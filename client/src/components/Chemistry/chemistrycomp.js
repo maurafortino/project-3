@@ -112,7 +112,7 @@ export default function Album() {
                       View
                     </Button>
                     <Button size="small" color="primary">
-                      Edit
+                      Contact Seller
                     </Button>
                   </CardActions>
                 </Card>
